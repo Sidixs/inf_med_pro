@@ -1,17 +1,19 @@
 import os
 
+from django.contrib.auth.decorators import login_required
 from django.core.files.base import ContentFile
 from django.shortcuts import render, redirect
 
 from infmedsteg.forms import MessageForm
 from infmedsteg.models import ClearFiles, Encoded
 import wave
-import struct
 
+@login_required
 def allFiles(request):
     files = ClearFiles.objects.all()
     return render(request, 'allfiles.html',{'files':files})
 
+@login_required
 def choosenFile(request, Fid):
     currentFile = ClearFiles.objects.get(id=Fid)
 

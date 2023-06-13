@@ -1,14 +1,16 @@
 import wave
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from infmedsteg.models import Encoded
 
-
+@login_required
 def allEncoded(request):
     files = Encoded.objects.filter(auth_user_id=request.user.id)
     return render(request, 'allencoded.html',{'files':files})
 
+@login_required
 def choosenEncoded(request, Fid):
     currentFile = Encoded.objects.get(id=Fid)
     decoded = ''
