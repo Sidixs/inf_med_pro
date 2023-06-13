@@ -17,7 +17,7 @@
         }
 
         body {
-            background-color: #FFE523;
+            background-image: linear-gradient(to bottom right, rgba(12, 159, 15, 0.84), rgba(148, 246, 79, 0.9));
             -webkit-background-size: cover;
             -moz-background-size: cover;
             background-size: cover;
@@ -25,7 +25,10 @@
         }
 
         .navbar {
-            background-image: linear-gradient(to bottom right, orange, #F4FF60);
+            background-image: linear-gradient(to bottom right, #94f64f, #0c9f0f);
+        }
+        .navbar2 {
+            background-image: linear-gradient(to bottom right, #0c9f0f, #94f64f);
         }
 
         .nav-link,
@@ -159,7 +162,8 @@
   transform: rotateY(180deg);
 }
 .active{
-    background-color: chartreuse;
+    background-image: linear-gradient(to bottom right, #2b9a02, #168803);
+    border-radius: 10px;
 }
     </style>
     <title>{% block title %}My Block{% endblock %}</title>
@@ -210,7 +214,7 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="mt-auto" style="background: linear-gradient(to bottom right, orange, #F4FF60);">
+    <footer class="mt-auto navbar2">
         <ul class="nav justify-content-left">
             <li class="nav-item">
                 <a href="/tos" class="nav-link" style="color: black;n">Waruki korzystania z usługi</a>
