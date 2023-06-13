@@ -4,8 +4,6 @@ from django.core.exceptions import ValidationError
 from django import forms
 from django.utils.safestring import mark_safe
 
-from infmedsteg.models import ClearFiles
-
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label="Nazwa użytkownika", required=True,
@@ -21,10 +19,6 @@ class RegisterForm(UserCreationForm):
     </ul>"""
     password1 = forms.CharField(label="Hasło", required=True, widget=forms.PasswordInput,
                                 help_text=mark_safe(pass1HelpText))
-    #       Your password can’t be too similar to your other personal information.
-    #       Your password must contain at least 8 characters.
-    #       Your password can’t be a commonly used password.
-    #       Your password can’t be entirely numeric.
     password2 = forms.CharField(label="Potwierdź hasło", required=True, widget=forms.PasswordInput,
                                 help_text="Powtórz to samo hasło co wcześniej, dla weryfikacji.")
     tos_accepted = forms.BooleanField(label=mark_safe('Akceptuję <a href="/tos">regulamin serwisu</a>'),
