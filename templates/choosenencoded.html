@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{#/allfiles#}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+{% block title %}Strona Główna{% endblock %}
+{% block content %}
+    <center>
+        <div style="width: 40rem">
+            <div class="card mt-3">
+                <div class="card-body d-flex flex-row justify-content-between text-center">
+                    <div class="post-preview-container">
+                        <div>
+                            <h5 class="card-title">{{ currentFile.name }}</h5>
+                            <div id="play">
+                                <audio src="{{ currentFile.file.url }}" type="audio/wav" controls="controls">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                {% if decoded != '' %}
+                                    <div class="card mt-3 mb-3">
+                                        {{ decoded }}
+                                    </div>
+                                {% endif %}
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-success mb-3" name="decode">
+                                        Odkoduj
+                                    </button><br>
+                                    <button type="submit" class="btn btn-danger mb-3" name="delete">
+                                        Usuń
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </center>
+{% endblock %}

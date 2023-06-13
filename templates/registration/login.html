@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container mt-auto">
+    <div class="card border-0 shadow my-5" style="background-color: #F3C44Cbb">
+        <div class="card-body p-5">
+            <form method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
