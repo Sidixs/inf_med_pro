@@ -1,3 +1,2 @@
 # inf_med_pro
-Żeby to działało poprawnie najpierw tworzysz django superuser, następnie przez panel admina dodajesz nowe ClearFiles,
-od tego momentu możesz przez normalnego użytkownika chować wiadomości w wybranych plikach które sąw zakładce Pliki
+Żeby to działało poprawnie najpierw tworzysz django superuser, następnie przez panel admina dodajesz nowe ClearFiles. Od tego momentu możesz przez normalnego użytkownika chować wiadomości w wybranych plikach które sąw zakładce Pliki
