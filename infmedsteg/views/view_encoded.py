@@ -18,7 +18,7 @@ def choosenEncoded(request, Fid):
             return redirect('myfiles')
         if 'decode' in request.POST:
             file = currentFile.file
-            print(file.path)
+            # print(file.path)
             song = wave.open(file.path, mode='rb')
             # Convert audio to byte array
             frame_bytes = bytearray(list(song.readframes(song.getnframes())))

@@ -19,7 +19,7 @@ def choosenFile(request, Fid):
         messageForm = MessageForm(request.POST)
         if messageForm.is_valid():
             message = messageForm.cleaned_data['message']
-            print(message)
+            # print(message)
             file = currentFile.file
             song = wave.open(file, mode='rb')
             # Read frames and convert to byte array
@@ -36,18 +36,18 @@ def choosenFile(request, Fid):
             frame_modified = bytes(frame_bytes)
 
             # Write bytes to a new wave audio file
-            print(currentFile.file.url)
+            # print(currentFile.file.url)
             out = Encoded()
             new_file = ContentFile(currentFile.file.read())
-            print("current ",os.path.basename(currentFile.file.name))
+            # print("current ",os.path.basename(currentFile.file.name))
             new_file.name=os.path.basename(currentFile.file.name)
             out.file = new_file
             out.name=messageForm.cleaned_data['title']
             out.auth_user_id=request.user.id
             out.save()
-            print(out.file)
+            # print(out.file)
             out1 = Encoded.objects.filter(auth_user_id=request.user.id).order_by('-id')
-            print(out1[0].file.path)
+            # print(out1[0].file.path)
             with wave.open(out1[0].file.path, 'wb') as fd:
                 fd.setparams(song.getparams())
                 fd.writeframes(frame_modified)
