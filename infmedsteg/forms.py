@@ -27,19 +27,19 @@ class RegisterForm(UserCreationForm):
     def clean_email2(self):
         email = self.cleaned_data.get('email')
         email2 = self.cleaned_data.get('email2')
-
         if email and email2 and email != email2:
             raise ValidationError("Podane adresy E-mail różnią się od siebie.")
-
         return email2
 
     class Meta:
         model = User
         fields = ["username", "email", "email2", "password1", "password2", "tos_accepted"]
 
+
 class MessageForm(forms.Form):
     title = forms.CharField(label='Tytuł')
-    message = forms.CharField(widget=forms.Textarea(attrs={'rows':'10'}), label='Wiadomość:')
+    message = forms.CharField(widget=forms.Textarea(attrs={'rows': '10'}), label='Wiadomość:')
+
     class Meta:
-        model=forms
-        fields=['title','message']
+        model = forms
+        fields = ['title', 'message']

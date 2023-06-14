@@ -1,6 +1,5 @@
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
-
 from infmedsteg.forms import RegisterForm
 
 
@@ -13,5 +12,4 @@ def sign_up(request):
             return redirect('/home')
     else:
         form = RegisterForm()
-
-    return render(request, 'signup.html', {"form" :form})
+    return render(request, 'signup.html', {"form": form})

@@ -4,26 +4,26 @@
 {% block content %}
     {% for file in files %}
         <center>
-        <div style="width: 36rem";>
-	<div class="card mt-3 mb-3">
-		<div class="card-body d-flex flex-row justify-content-between text-center">
-			<div class="post-preview-container">
-        <a href="{% url 'choosenfile' file.id %}">
-          <div>
-            <h5 class="card-title" >{{file.name}}</h5>
-              <div id="play"><audio src="{{ file.file.url }}" type="audio/wav" controls="controls">
-                  Your browser does not support the audio element.
-              </audio>
-
-          </div>
-        </a>
-
-	</div>
-        </div>
-    </div>
-        </div>
+            <div style="width: 36rem" ;>
+                <div class="card mt-3 mb-3">
+                    <div class="card-body d-flex flex-row justify-content-between text-center">
+                        <div class="post-preview-container">
+                            <a href="{% url 'choosenfile' file.id %}">
+                                <div>
+                                    <h5 class="card-title">{{ file.name }}</h5>
+                                    <div id="play">
+                                        <audio src="{{ file.file.url }}" type="audio/wav" controls="controls">
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </center>
-	{% empty %}
-	<p>Brak plików</p>
-	{% endfor %}
+    {% empty %}
+        <p>Brak plików</p>
+    {% endfor %}
 {% endblock %}

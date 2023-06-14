@@ -1,11 +1,7 @@
-from django.conf import settings
-from django.conf.urls.static import static
-
 from django.urls import path
-
 from infmedsteg import views
 
-urlpatterns =[
+urlpatterns = [
     path('', views.view_home.home, name='home'),
     path('home', views.view_home.home, name='home'),
     path('tos', views.view_tos.TOS_page, name='tos'),
